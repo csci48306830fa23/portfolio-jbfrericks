@@ -19,7 +19,7 @@ public class SphereMovement : MonoBehaviour
         float verticalMovement = Input.GetAxis("Vertical");
 
         Vector3 movement = new Vector3(horizontalMovement, 0, verticalMovement) * speed * Time.deltaTime;
-
+        Physics.gravity = new Vector3(0, -1.0F, 0);
         transform.Translate(movement);
 
         isGrounded = Physics.Raycast(transform.position, -Vector3.up, groundCheckDistance);
