@@ -6,7 +6,7 @@ public class InputExample : MonoBehaviour
 {
     
     [SerializeField]
-    GameObject spawnObjectPrefab;
+    SpawnedObject spawnObjectPrefab;
 
     // Start is called before the first frame update
 
@@ -21,6 +21,6 @@ public class InputExample : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space)){
             GameObject.Instantiate(spawnObjectPrefab);
             Debug.Log("key pressed");
-        }
+        }   
     }
 }
