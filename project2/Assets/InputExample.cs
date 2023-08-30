@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class InputExample : MonoBehaviour
 {
+    
+    [SerializeField]
+    GameObject spawnObjectPrefab;
+
     // Start is called before the first frame update
+
     void Start()
     {
         
@@ -14,6 +19,7 @@ public class InputExample : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space)){
+            GameObject.Instantiate(spawnObjectPrefab);
             Debug.Log("key pressed");
         }
     }
