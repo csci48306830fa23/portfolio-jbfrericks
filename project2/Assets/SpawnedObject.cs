@@ -16,5 +16,8 @@ public class SpawnedObject : MonoBehaviour
     void Update()
     {
         lifeTme -= Time.deltaTime;
+        if (lifeTme < 0){
+            GameObject.Destroy(gameObject);
+        }
     }
 }
