@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: 417f1a899ef4d694e97f05d2a50407c8
+guid: 84f93d48bb5cfe64c830b999f526e466
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - spawnedObjectPrefab: {fileID: -1048006101269892853, guid: 9f293fb50d5973e4886b2261eea6a808, type: 3}
-  - spawnPoint: {instanceID: 0}
+  - spawnedObjectPrefab: {fileID: 4682778253850324898, guid: 410f4af8478722641916316e2c20fc56, type: 3}
+  - spawnPoint: {fileID: 5087793665560930078, guid: 865ba591e31500a49a273a3992eb34fa, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
