@@ -7,12 +7,12 @@ public class Selector : MonoBehaviour
 
     [SerializeField]
     Transform rayOrigin;
-    [SerializeField]
+   //[SerializeField]
     GameObject rayTarget;
 
     //Transform rayTarget;
     Vector3 direction;
-    float mult = 10.0f;
+    float mult = 5.0f;
     // Start is called before the first frame update
     Rigidbody rb;
 
