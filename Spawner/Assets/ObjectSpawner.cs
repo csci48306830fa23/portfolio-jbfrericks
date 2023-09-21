@@ -26,21 +26,25 @@ public class ObjectSpawner : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.V))
         {
             GameObject spawnedObject = Instantiate(cube, spawnPoint.position, spawnPoint.rotation);
+            GameObject spawnedObject2 = Instantiate(cube, spawnPoint.position, spawnPoint.rotation);
             //Destroy(spawnedObject, 10f);
         }
         else if (Input.GetKeyDown(KeyCode.C))
         {
             GameObject spawnedObject = Instantiate(cylinder, spawnPoint.position, spawnPoint.rotation);
+            GameObject spawnedObject2 = Instantiate(cylinder, spawnPoint.position, spawnPoint.rotation);
             //Destroy(spawnedObject, 10f);
         }
         else if (Input.GetKeyDown(KeyCode.X))
         {
             GameObject spawnedObject = Instantiate(sphere, spawnPoint.position, spawnPoint.rotation);
+            GameObject spawnedObject2 = Instantiate(sphere, spawnPoint.position, spawnPoint.rotation);
             //Destroy(spawnedObject, 10f);
         }
         else if (Input.GetKeyDown(KeyCode.Z))
         {
             GameObject spawnedObject = Instantiate(capsule, spawnPoint.position, spawnPoint.rotation);
+            GameObject spawnedObject1 = Instantiate(capsule, spawnPoint.position, spawnPoint.rotation);
             //Destroy(spawnedObject, 10f);
         }
         else if (Input.GetKeyDown(KeyCode.A))
