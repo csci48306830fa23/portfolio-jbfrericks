@@ -2,54 +2,54 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Connector : MonoBehaviour
+public class Connector2 : MonoBehaviour
 {
-
     private Material newMaterial;
     private FixedJoint fj;
     public float moveSpeed = 5.0f;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
     void Update()
     {
-        if (fj == null || fj.connectedBody == null)
-        {
-            float moveX = Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime;
-            float moveZ = Input.GetAxis("Vertical") * moveSpeed * Time.deltaTime;
+        //if (fj == null || fj.connectedBody == null)
+        //{
+        //    float moveX = Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime;
+        //    float moveZ = Input.GetAxis("Vertical") * moveSpeed * Time.deltaTime;
 
-            transform.Translate(moveX, 0, moveZ);
-        }
-        
+        //    transform.Translate(moveX, 0, moveZ);
+        //}
     }
+
     private void OnTriggerEnter(Collider other)
     {
+        // Ensure the object is a CollectibleCube
+        if (other.CompareTag("CollectibleCube"))
+        {
+            AttachCube(other.gameObject);
+        }
+    }
 
-        other.gameObject.transform.SetParent(transform);
+    private void AttachCube(GameObject cube)
+    {
+        cube.transform.SetParent(transform);
 
         newMaterial = new Material(Shader.Find("Standard"));
         newMaterial.color = Random.ColorHSV();
 
-        if (other.gameObject.GetComponent<Renderer>() != null && GetComponent<Renderer>() != null)
+        if (cube.GetComponent<Renderer>() != null && GetComponent<Renderer>() != null)
         {
-            other.gameObject.GetComponent<Renderer>().material = newMaterial;
+            cube.GetComponent<Renderer>().material = newMaterial;
             GetComponent<Renderer>().material = newMaterial;
         }
 
-        Vector3 contactPoint = other.ClosestPoint(transform.position);
+        Vector3 contactPoint = cube.transform.position; // Using the cube's position directly.
 
         fj = gameObject.AddComponent<FixedJoint>();
-        fj.connectedBody = other.gameObject.GetComponent<Rigidbody>();
-        fj.connectedAnchor = other.transform.InverseTransformPoint(contactPoint);
-
-        
+        fj.connectedBody = cube.GetComponent<Rigidbody>();
+        fj.connectedAnchor = cube.transform.InverseTransformPoint(contactPoint);
 
         updateColor();
     }
+
     void updateColor()
     {
         FixedJoint[] joints = FindObjectsOfType<FixedJoint>();
