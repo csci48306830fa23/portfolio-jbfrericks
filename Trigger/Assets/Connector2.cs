@@ -1,13 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using static Unity.VisualScripting.Member;
 
 public class Connector2 : MonoBehaviour
 {
     private Material newMaterial;
     private FixedJoint fj;
     public float moveSpeed = 5.0f;
-
+    public AudioClip sound;
+    public AudioSource source;
+    public bool canAttach = true;
     void Update()
     {
         //if (fj == null || fj.connectedBody == null)
@@ -21,8 +25,10 @@ public class Connector2 : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Connector2 otherObject = other.gameObject.GetComponent<Connector2>();
+
         // Ensure the object is a CollectibleCube
-        if (other.CompareTag("CollectibleCube"))
+        if (other.CompareTag("CollectibleCube") && otherObject && otherObject.canAttach && this.canAttach)
         {
             AttachCube(other.gameObject);
         }
@@ -43,11 +49,14 @@ public class Connector2 : MonoBehaviour
 
         Vector3 contactPoint = cube.transform.position; // Using the cube's position directly.
 
-        fj = gameObject.AddComponent<FixedJoint>();
-        fj.connectedBody = cube.GetComponent<Rigidbody>();
-        fj.connectedAnchor = cube.transform.InverseTransformPoint(contactPoint);
+        //fj = gameObject.AddComponent<FixedJoint>();
+        //fj.connectedBody = cube.GetComponent<Rigidbody>();
+        //fj.connectedAnchor = cube.transform.InverseTransformPoint(contactPoint);
 
         updateColor();
+        source.clip = sound;
+        source.Play();
+        //this.canAttach = false;
     }
 
     void updateColor()
