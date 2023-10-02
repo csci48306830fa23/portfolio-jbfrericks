@@ -10,9 +10,11 @@ public class ObjectSpawner : MonoBehaviour
     public GameObject sphere;
     public GameObject capsule;
     public GameObject cylinder;
+    public GameObject bouncer;
 
     public Transform spawnPoint;
     public Transform spawnPoint2;
+    public Transform spawnPoint3;
 
     // Start is called before the first frame update
     void Start()
@@ -23,12 +25,47 @@ public class ObjectSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.V))
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            GameObject spawnedObject = Instantiate(cube, spawnPoint2.position, spawnPoint2.rotation);
+            Destroy(spawnedObject, 10f);
+        }
+        else if (Input.GetKeyDown(KeyCode.S))
+        {
+            GameObject spawnedObject = Instantiate(cylinder, spawnPoint2.position, spawnPoint2.rotation);
+            Destroy(spawnedObject, 10f);
+        }
+        else if (Input.GetKeyDown(KeyCode.D))
+        {
+            GameObject spawnedObject = Instantiate(sphere, spawnPoint2.position, spawnPoint2.rotation);
+            Destroy(spawnedObject, 10f);
+        }
+        else if (Input.GetKeyDown(KeyCode.F))
+        {
+            GameObject spawnedObject = Instantiate(capsule, spawnPoint2.position, spawnPoint2.rotation);
+            Destroy(spawnedObject, 10f);
+        }
+        else if (Input.GetKeyDown(KeyCode.G))
+        {
+            GameObject spawnedObject = Instantiate(bouncer, spawnPoint3.position, spawnPoint3.rotation);
+            Destroy(spawnedObject, 10f);
+        }
+        else if (Input.GetKeyDown(KeyCode.V))
         {
             GameObject spawnedObject = Instantiate(cube, spawnPoint.position, spawnPoint.rotation);
             GameObject spawnedObject2 = Instantiate(cube, spawnPoint.position, spawnPoint.rotation);
             GameObject spawnedObject3 = Instantiate(cube, spawnPoint.position, spawnPoint.rotation);
             GameObject spawnedObject4 = Instantiate(cube, spawnPoint.position, spawnPoint.rotation);
+            Instantiate(cube, spawnPoint.position, spawnPoint.rotation);
+            Instantiate(cube, spawnPoint.position, spawnPoint.rotation);
+            Instantiate(cube, spawnPoint.position, spawnPoint.rotation);
+            Instantiate(cube, spawnPoint.position, spawnPoint.rotation);
+            Instantiate(cube, spawnPoint.position, spawnPoint.rotation);
+            Instantiate(cube, spawnPoint.position, spawnPoint.rotation);
+            Instantiate(cube, spawnPoint.position, spawnPoint.rotation);
+            Instantiate(cube, spawnPoint.position, spawnPoint.rotation);
+            Instantiate(cube, spawnPoint.position, spawnPoint.rotation);
+            Instantiate(cube, spawnPoint.position, spawnPoint.rotation);
             Instantiate(cube, spawnPoint.position, spawnPoint.rotation);
             Instantiate(cube, spawnPoint.position, spawnPoint.rotation);
             Instantiate(cube, spawnPoint.position, spawnPoint.rotation);
@@ -41,6 +78,18 @@ public class ObjectSpawner : MonoBehaviour
         {
             GameObject spawnedObject = Instantiate(cylinder, spawnPoint.position, spawnPoint.rotation);
             GameObject spawnedObject2 = Instantiate(cylinder, spawnPoint.position, spawnPoint.rotation);
+            Instantiate(cylinder, spawnPoint.position, spawnPoint.rotation);
+            Instantiate(cylinder, spawnPoint.position, spawnPoint.rotation);
+            Instantiate(cylinder, spawnPoint.position, spawnPoint.rotation);
+            Instantiate(cylinder, spawnPoint.position, spawnPoint.rotation);
+            Instantiate(cylinder, spawnPoint.position, spawnPoint.rotation);
+            Instantiate(cylinder, spawnPoint.position, spawnPoint.rotation);
+            Instantiate(cylinder, spawnPoint.position, spawnPoint.rotation);
+            Instantiate(cylinder, spawnPoint.position, spawnPoint.rotation);
+            Instantiate(cylinder, spawnPoint.position, spawnPoint.rotation);
+            Instantiate(cylinder, spawnPoint.position, spawnPoint.rotation);
+            Instantiate(cylinder, spawnPoint.position, spawnPoint.rotation);
+            Instantiate(cylinder, spawnPoint.position, spawnPoint.rotation);
             Instantiate(cylinder, spawnPoint.position, spawnPoint.rotation);
             Instantiate(cylinder, spawnPoint.position, spawnPoint.rotation);
             Instantiate(cylinder, spawnPoint.position, spawnPoint.rotation);
@@ -68,6 +117,18 @@ public class ObjectSpawner : MonoBehaviour
             Instantiate(sphere, spawnPoint.position, spawnPoint.rotation);
             Instantiate(sphere, spawnPoint.position, spawnPoint.rotation);
             Instantiate(sphere, spawnPoint.position, spawnPoint.rotation);
+            Instantiate(sphere, spawnPoint.position, spawnPoint.rotation);
+            Instantiate(sphere, spawnPoint.position, spawnPoint.rotation);
+            Instantiate(sphere, spawnPoint.position, spawnPoint.rotation);
+            Instantiate(sphere, spawnPoint.position, spawnPoint.rotation);
+            Instantiate(sphere, spawnPoint.position, spawnPoint.rotation);
+            Instantiate(sphere, spawnPoint.position, spawnPoint.rotation);
+            Instantiate(sphere, spawnPoint.position, spawnPoint.rotation);
+            Instantiate(sphere, spawnPoint.position, spawnPoint.rotation);
+            Instantiate(sphere, spawnPoint.position, spawnPoint.rotation);
+            Instantiate(sphere, spawnPoint.position, spawnPoint.rotation);
+            Instantiate(sphere, spawnPoint.position, spawnPoint.rotation);
+            Instantiate(sphere, spawnPoint.position, spawnPoint.rotation);
             //Destroy(spawnedObject, 10f);
         }
         else if (Input.GetKeyDown(KeyCode.Z))
@@ -82,27 +143,16 @@ public class ObjectSpawner : MonoBehaviour
             Instantiate(capsule, spawnPoint.position, spawnPoint.rotation);
             Instantiate(capsule, spawnPoint.position, spawnPoint.rotation);
             Instantiate(capsule, spawnPoint.position, spawnPoint.rotation);
+            Instantiate(capsule, spawnPoint.position, spawnPoint.rotation);
+            Instantiate(capsule, spawnPoint.position, spawnPoint.rotation);
+            Instantiate(capsule, spawnPoint.position, spawnPoint.rotation);
+            Instantiate(capsule, spawnPoint.position, spawnPoint.rotation);
+            Instantiate(capsule, spawnPoint.position, spawnPoint.rotation);
+            Instantiate(capsule, spawnPoint.position, spawnPoint.rotation);
+            Instantiate(capsule, spawnPoint.position, spawnPoint.rotation);
+            Instantiate(capsule, spawnPoint.position, spawnPoint.rotation);
             //Destroy(spawnedObject, 10f);
         }
-        else if (Input.GetKeyDown(KeyCode.A))
-        {
-            GameObject spawnedObject = Instantiate(cube, spawnPoint2.position, spawnPoint2.rotation);
-            Destroy(spawnedObject, 10f);
-        }
-        else if (Input.GetKeyDown(KeyCode.S))
-        {
-            GameObject spawnedObject = Instantiate(cylinder, spawnPoint2.position, spawnPoint2.rotation);
-            Destroy(spawnedObject, 10f);
-        }
-        else if (Input.GetKeyDown(KeyCode.D))
-        {
-            GameObject spawnedObject = Instantiate(sphere, spawnPoint2.position, spawnPoint2.rotation);
-            Destroy(spawnedObject, 10f);
-        }
-        else if (Input.GetKeyDown(KeyCode.F))
-        {
-            GameObject spawnedObject = Instantiate(capsule, spawnPoint2.position, spawnPoint2.rotation);
-            Destroy(spawnedObject, 10f);
-        }
+        
     }
 }

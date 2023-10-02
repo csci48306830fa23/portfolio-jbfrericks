@@ -29,10 +29,10 @@ public class Selector : MonoBehaviour
     void Update()
     {
         getDistance();
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            shootObject();
-        }
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    shootObject();
+        //}
     }
 
     void getDistance()
@@ -48,7 +48,11 @@ public class Selector : MonoBehaviour
             rb = hit.rigidbody;
             direction = hit.transform.position - rayOrigin.position;
             Debug.Log("Distance between the object and raycast is " + distance);
-                    
+
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                shootObject();
+            }
         }
         else
         {
@@ -59,5 +63,7 @@ public class Selector : MonoBehaviour
     void shootObject()
     {
         rb.AddForce(direction * mult, ForceMode.Impulse);
+       
+       
     }
 }

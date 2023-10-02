@@ -22,7 +22,7 @@ public class MoveToMousePosition : MonoBehaviour
     void MoveToMousePos()
     {
         Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
+        //RaycastHit hit;
 
         Plane plane = new Plane(Vector3.up, new Vector3(0, transform.position.y, 0));
 

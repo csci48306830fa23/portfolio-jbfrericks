@@ -23,14 +23,15 @@ public class Connector2 : MonoBehaviour
         //}
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision other)
     {
         Connector2 otherObject = other.gameObject.GetComponent<Connector2>();
 
-        // Ensure the object is a CollectibleCube
-        if (other.CompareTag("CollectibleCube") && otherObject && otherObject.canAttach && this.canAttach)
+        
+        if (other.gameObject.CompareTag("CollectibleCube") && otherObject && otherObject.canAttach && canAttach)
         {
             AttachCube(other.gameObject);
+            other.gameObject.tag = "NotCollectible";
         }
     }
 
@@ -56,7 +57,8 @@ public class Connector2 : MonoBehaviour
         updateColor();
         source.clip = sound;
         source.Play();
-        //this.canAttach = false;
+
+        //canAttach = false;
     }
 
     void updateColor()

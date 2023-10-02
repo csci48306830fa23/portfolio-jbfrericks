@@ -33,9 +33,6 @@ public class ShapeChanger : MonoBehaviour
             Destroy(currentShape);
         }
         currentShape = Instantiate(shapes[index], spawnPoint.position, spawnPoint.rotation);
-        //for (int i = 0; i < shapes.Length; i++)
-        //{
-        //    shapes[i].SetActive(i == index);
-        //}
+        
     }
 }

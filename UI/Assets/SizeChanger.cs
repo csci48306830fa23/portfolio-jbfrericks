@@ -14,7 +14,7 @@ public class SizeChanger : MonoBehaviour
 
         sizeSlider.onValueChanged.AddListener(OnSliderValueChanged);  
 
-        //initialScale = cube.GetComponent<Vector3>();
+     
     }
 
     void OnSliderValueChanged(float value)
