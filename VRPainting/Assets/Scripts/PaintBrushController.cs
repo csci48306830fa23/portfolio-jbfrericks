@@ -15,10 +15,19 @@ public class PaintbrushController : MonoBehaviour
     public float sizeChangeRate = 0.01f;
 
     public Color currentBrushColor;
+    public Material brushMaterial;
 
     public TextMeshProUGUI brushSizeText;
     public Image brushColorImage;
 
+    public string camName = "World Mouse UI Camera";
+    public Canvas canvas;
+
+    void Start()
+    {
+        Camera uiCamera = GameObject.Find(camName).GetComponent<Camera>();
+        canvas.worldCamera = uiCamera;
+    }
     void Update()
     {
         if (InputMan.Button2Down(side)) 
@@ -39,6 +48,9 @@ public class PaintbrushController : MonoBehaviour
     void Draw()
     {
         GameObject paint = Instantiate(paintPrefab, brushTip.position, Quaternion.identity);
+        Renderer paintRenderer = paint.GetComponent<Renderer>();
+        paintRenderer.material = new Material(brushMaterial); 
+        paintRenderer.material.color = currentBrushColor;
         paint.transform.localScale = Vector3.one * brushSize;
     }
     public void ChangeBrushSize(float change)
@@ -46,11 +58,22 @@ public class PaintbrushController : MonoBehaviour
         brushSize += change;
         brushSize = Mathf.Max(0.01f, brushSize); 
     }
+    public void SetBrushColorFromButton()
+    {
+        Image buttonImage = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.GetComponent<Image>();
+        ChangeBrushColor(buttonImage.color);
+    }
+    public void ChangeBrushColor(Color newColor)
+    {
+        currentBrushColor = newColor;
+        brushMaterial.color = newColor; 
+        UpdateBrushUI(); 
+    }
 
     void UpdateBrushUI()
     {
-        brushSizeText.text = "Size: " + brushSize.ToString("F2"); // F2 to format the size with 2 decimal places
-        brushColorImage.color = currentBrushColor; // Assuming you have a variable for the current color
+        brushSizeText.text = "Size: " + brushSize.ToString("F2"); 
+        brushColorImage.color = currentBrushColor; 
     }
 
 }
