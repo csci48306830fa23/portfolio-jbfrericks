@@ -1,7 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using VelUtils;
+
+using UnityEngine.UI;
 
 public class PaintbrushController : MonoBehaviour
 {
@@ -11,9 +14,14 @@ public class PaintbrushController : MonoBehaviour
     public float brushSize = 0.01f;
     public float sizeChangeRate = 0.01f;
 
+    public Color currentBrushColor;
+
+    public TextMeshProUGUI brushSizeText;
+    public Image brushColorImage;
+
     void Update()
     {
-        if (InputMan.Button2Down(side)) // Change to your VR controller's button input
+        if (InputMan.Button2Down(side)) 
         {
             Draw();
         }
@@ -25,6 +33,7 @@ public class PaintbrushController : MonoBehaviour
         {
             ChangeBrushSize(-sizeChangeRate);
         }
+        UpdateBrushUI();
     }
 
     void Draw()
@@ -37,4 +46,11 @@ public class PaintbrushController : MonoBehaviour
         brushSize += change;
         brushSize = Mathf.Max(0.01f, brushSize); 
     }
+
+    void UpdateBrushUI()
+    {
+        brushSizeText.text = "Size: " + brushSize.ToString("F2"); // F2 to format the size with 2 decimal places
+        brushColorImage.color = currentBrushColor; // Assuming you have a variable for the current color
+    }
+
 }
