@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:VRShooter/Assets/Scripts/ExplodingTarget.cs.meta
 guid: 8d3bc4c261fd7f74ca419b8b6dc34ef3
+========
+guid: 89d2b185088f83b4c89ab127df9f655f
+>>>>>>>> eafaff94b692493057070e295e6f26742cdbb3e1:VRShooter/Assets/Scripts/GunShooting.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
