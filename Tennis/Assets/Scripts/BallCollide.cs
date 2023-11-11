@@ -20,15 +20,15 @@ public class BallCollide : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CalculateSwingDirection();
-        Debug.DrawRay(transform.position, swingDirection * 2, Color.red); // Visualize the direction
+        //CalculateSwingDirection();
+        //Debug.DrawRay(transform.position, swingDirection * 2, Color.red); // Visualize the direction
 
     }
 
     private void FixedUpdate()
     {
-        //CalculateSwingDirection();
-        //Debug.DrawRay(transform.position, swingDirection * 2, Color.red); // Visualize the direction
+        CalculateSwingDirection();
+        Debug.DrawRay(transform.position, swingDirection * 2, Color.red); // Visualize the direction
 
     }
 
