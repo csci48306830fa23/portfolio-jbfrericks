@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class AudioAnalyzer : MonoBehaviour
 {
@@ -19,12 +20,17 @@ public class AudioAnalyzer : MonoBehaviour
     public GameObject bassObject, midObject, trebleObject;
     private float[] frequencyBands = new float[3];
 
+
+    
+
     // Start is called before the first frame update
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
         clipSampleData = new float[sampleDataLength];
         audioSource.clip = audioClips[currentClipIndex];
+
+        
     }
 
     // Update is called once per frame
@@ -49,8 +55,12 @@ public class AudioAnalyzer : MonoBehaviour
             midObject.transform.localScale = new Vector3(0.3f, 1, 0.3f) + new Vector3(0.3f, 1, 0.3f) * frequencyBands[1];
             trebleObject.transform.localScale = new Vector3(0.3f, 1, 0.3f) + new Vector3(0.3f, 1, 0.3f) * frequencyBands[2];
 
+
+            
         }
     }
+
+    
     private void AnalyzeSound()
     {
         float[] spectrum = new float[1024];
