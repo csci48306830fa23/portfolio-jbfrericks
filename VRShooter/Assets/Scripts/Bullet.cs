@@ -15,4 +15,16 @@ public class ExplodingTarget : MonoBehaviour
     {
         
     }
+
+    private void OnTriggerEnter(Collider collision)
+    {
+        Debug.Log("Destory");
+        if (collision.gameObject.tag == "Enemy")
+        {
+
+            Debug.Log("Destory");
+            Destroy(collision.gameObject);
+        }
+    }
+   
 }

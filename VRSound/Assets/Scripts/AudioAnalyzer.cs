@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using VelUtils.VRInteraction;
 
 public class AudioAnalyzer : MonoBehaviour
 {
@@ -20,8 +21,15 @@ public class AudioAnalyzer : MonoBehaviour
     public GameObject bassObject, midObject, trebleObject;
     private float[] frequencyBands = new float[3];
 
-
-    
+    private Quaternion initialRotation;
+    private Vector3 initialPosition;
+    public float maxRotation = 360.0f;
+    //public AudioSource audioSource;
+    public VRDial volumeDial;
+    public VRDial bassDial;
+    public VRDial midDial;
+    public VRDial trebleDial;
+    public AudioMixer audioMixer;
 
     // Start is called before the first frame update
     void Start()
@@ -29,8 +37,10 @@ public class AudioAnalyzer : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         clipSampleData = new float[sampleDataLength];
         audioSource.clip = audioClips[currentClipIndex];
-
+        initialRotation = transform.localRotation;
+        initialPosition = transform.localPosition;
         
+
     }
 
     // Update is called once per frame
@@ -57,6 +67,33 @@ public class AudioAnalyzer : MonoBehaviour
 
 
             
+        }
+        if(volumeDial.GrabbedBy!=null)
+        {
+            Vector3 localEulerAnglesVolume = volumeDial.transform.localEulerAngles;
+            float volAngle = localEulerAnglesVolume.y;
+
+            Debug.Log(volAngle);
+
+            UpdateVolume(volAngle);
+        }
+        if (bassDial.GrabbedBy != null)
+        {
+            float bassLevel = GetDialLevel(bassDial);
+            float bass = ConvertLevelToDecibels(bassLevel);
+            Debug.Log(bassLevel);
+            audioMixer.SetFloat("BassGain", bass);
+        }
+        if (midDial.GrabbedBy != null)
+        {
+            float midLevel = GetDialLevel(midDial);
+            audioMixer.SetFloat("MidGain", ConvertLevelToDecibels(midLevel));
+            //audioMixer.SetFloat("MidHigh", ConvertLevelToDecibels(midLevel));
+        }
+        if (trebleDial.GrabbedBy != null)
+        {
+            float trebleLevel = GetDialLevel(trebleDial);
+            audioMixer.SetFloat("TrebleGain", ConvertLevelToDecibels(trebleLevel));
         }
     }
 
@@ -116,6 +153,26 @@ public class AudioAnalyzer : MonoBehaviour
             audioSource.clip = audioClips[currentClipIndex];
             PlayAudio();
         }
+    }
+
+    void UpdateVolume(float angle)
+    {
+        float volume = angle / maxRotation;
+        Debug.Log(volume);
+        audioSource.volume = volume;
+    }
+    float GetDialLevel(VRDial dial)
+    {
+        // Get the angle of the dial and convert it to a 0-1 range for level
+        Vector3 localEulerAngles = dial.transform.localEulerAngles;
+        float angle = localEulerAngles.y; // Assuming y is the axis of rotation for the dials
+        return angle / maxRotation; // This converts the angle to a level between 0 and 1
+    }
+    float ConvertLevelToDecibels(float level)
+    {
+        // Convert the linear volume level to decibels.
+        // -80dB is silence, 0dB is full volume.
+        return (level * 6.0f) - 3.0f;
     }
 }
 

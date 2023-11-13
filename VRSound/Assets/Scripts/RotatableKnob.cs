@@ -11,13 +11,14 @@ public class RotatableKnob : MonoBehaviour
     public VRGrabbable moveable1;
     public float maxRotation = 360.0f;
     public AudioSource audioSource;
+    public VRDial volumeDial;
 
     void Start()
     {
         initialRotation = transform.localRotation;
         initialPosition = transform.localPosition;
-        moveable = GetComponent<VRMoveable>();
-        moveable1 = GetComponent<VRGrabbable>();
+        moveable = volumeDial.GetComponent<VRMoveable>();
+        moveable1 = volumeDial.GetComponent<VRGrabbable>();
     }
 
     void Update()

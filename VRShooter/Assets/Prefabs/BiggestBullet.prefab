@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3253464842299522135}
   - component: {fileID: 1794181941223403183}
   - component: {fileID: -1224659955782234915}
+  - component: {fileID: -2657164797014590634}
   m_Layer: 0
   m_Name: BiggestBullet
   m_TagString: Untagged
@@ -135,7 +136,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!96 &-1224659955782234915
 TrailRenderer:
   serializedVersion: 3
@@ -187,8 +188,8 @@ TrailRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0.55263007
-        value: 0.28000137
+        time: 0.05789435
+        value: 0.093332976
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -200,7 +201,7 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.8018868, g: 0.57343507, b: 0.41229087, a: 1}
+      key0: {r: 0.26415092, g: 0.21816237, b: 0.18565324, a: 1}
       key1: {r: 1, g: 1, b: 1, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
@@ -240,3 +241,15 @@ TrailRenderer:
   m_Autodestruct: 0
   m_Emitting: 1
   m_ApplyActiveColorSpace: 1
+--- !u!114 &-2657164797014590634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1289857672394781230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d3bc4c261fd7f74ca419b8b6dc34ef3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

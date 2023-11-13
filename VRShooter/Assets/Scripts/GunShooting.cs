@@ -40,14 +40,8 @@ public class GunShooting : MonoBehaviour
     void Shoot()
     {
 
-        // Instantiate the projectile
-
         Quaternion rotatedForward = Quaternion.Euler(shootingPoint.eulerAngles.x, shootingPoint.eulerAngles.y, shootingPoint.eulerAngles.z + 90);
-
-        // Instantiate the projectile with the new rotation
         GameObject projectile = Instantiate(projectilePrefab, shootingPoint.position, rotatedForward);
-
-        // Apply force to the projectile to make it move
         Rigidbody projectileRb = projectile.GetComponent<Rigidbody>();
         if (projectileRb != null)
         {
@@ -57,6 +51,7 @@ public class GunShooting : MonoBehaviour
         {
             Debug.LogError("Projectile does not have a Rigidbody component");
         }
+
 
     }
 }
