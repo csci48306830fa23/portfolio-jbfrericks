@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.meta.xr.sdk.core": "59.0.0",
     "com.unity.collab-proxy": "2.0.5",
     "com.unity.feature.development": "1.0.1",
     "com.unity.textmeshpro": "3.0.6",
@@ -7,6 +8,7 @@
     "com.unity.toolchain.win-x86_64-linux-x86_64": "2.0.6",
     "com.unity.ugui": "1.0.0",
     "com.unity.visualscripting": "1.8.0",
+    "com.unity.xr.interaction.toolkit": "2.4.3",
     "com.unity.xr.management": "4.4.0",
     "com.unity.xr.oculus": "4.0.0",
     "edu.uga.engr.vel.velutils": "https://github.com/velaboratory/VelUtils.git",
@@ -41,5 +43,14 @@
     "com.unity.modules.vr": "1.0.0",
     "com.unity.modules.wind": "1.0.0",
     "com.unity.modules.xr": "1.0.0"
-  }
+  },
+  "scopedRegistries": [
+    {
+      "name": "Meta",
+      "url": "https://npm.developer.oculus.com",
+      "scopes": [
+        "com.meta"
+      ]
+    }
+  ]
 }
