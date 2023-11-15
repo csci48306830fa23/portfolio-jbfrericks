@@ -22,12 +22,6 @@ public class GunShooting : MonoBehaviour
     {
         if (moveable.GrabbedBy != null)
         {
-
-
-            if (Input.GetButtonDown("Fire1"))
-            {
-                Shoot();
-            }
             if (InputMan.Button2Down(side))
             {
                 Shoot();

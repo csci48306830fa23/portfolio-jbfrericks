@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class TestAvatarLoader : MonoBehaviour
 {
-    [SerializeField, Tooltip("Set this to the URL or shortcode of the Ready Player Me Avatar you want to load.")]
     private string avatarUrl = "https://models.readyplayer.me/65427fcb07229b85ca8291dd.glb";
 
     private GameObject avatar;
@@ -29,7 +28,7 @@ public class TestAvatarLoader : MonoBehaviour
             boxCollider.size = new Vector3(0.8f, 4, 0.8f);
             boxCollider.isTrigger = true;
             avatar.tag = "Enemy";
-            SetAnimatorController(args.Metadata.OutfitGender); //  <--------------- ADDED
+            SetAnimatorController(args.Metadata.OutfitGender); 
         };
         avatarLoader.LoadAvatar(avatarUrl);
     }

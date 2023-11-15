@@ -35,10 +35,16 @@ public class PaintbrushController : MonoBehaviour
     public Vector3 pos;
     public Vector3 rot;
 
+    public Transform controllerTransform;
+    public Vector3 initialHandPosition;
+    public Vector3 initialScale;
+    private bool isStretched = false;
+
+
     void Start()
     {
-        Camera uiCamera = GameObject.Find(camName).GetComponent<Camera>();
-        canvas.worldCamera = uiCamera;
+        //Camera uiCamera = GameObject.Find(camName).GetComponent<Camera>();
+        //canvas.worldCamera = uiCamera;
         paintPrefab = paintPrefabSphere;
     }
     void Update()
@@ -56,47 +62,51 @@ public class PaintbrushController : MonoBehaviour
             ChangeBrushSize(-sizeChangeRate);
         }
         UpdateBrushUI();
-
     }
     private void FixedUpdate()
     {
-        //Debug.Log("fixed up");
-        //for(int i = 0; i < paints.Length; i++)
-        //{
-        //    moveable = paints[i].GetComponent<VRMoveable>();
-        //    rb = paints[i].GetComponent<Rigidbody>();
-        //    if (moveable.GrabbedBy != null)
-        //    {
-        //        rb.isKinematic = false;
-        //    }
-        //    else
-        //    {
-        //        rb.isKinematic = true;
-        //    }
-        //}
+       
         foreach (GameObject paint in paints)
         {
             VRMoveable moveable = paint.GetComponent<VRMoveable>();
-           
             if (moveable.GrabbedBy != null)
             {
-                Debug.Log("grabbed");
-                paint.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
-
+                if (InputMan.Button1Down(side))
+                {
+                    isStretched = !isStretched;
+                    if (isStretched)
+                    {
+                        initialHandPosition = controllerTransform.position;
+                        initialScale = transform.localScale;
+                    }
+                }
+                if (isStretched)
+                {
+                    StretchPaint(paint);
+                }
+                else
+                {
+                    Debug.Log("grabbed");
+                    paint.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+                }
             }
             else
             {
                 paint.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
-
             }
-            
         }
     }
 
+    void StretchPaint(GameObject paint)
+    {
+        if (paint == null) return;
+        float scaleFactor = (controllerTransform.position.y - initialHandPosition.y) + 3;
+        paint.transform.localScale = new Vector3(initialScale.x, initialScale.y * scaleFactor, initialScale.z);
+    }
     void Draw()
     {
         
-        GameObject paint = Instantiate(paintPrefab, brushTip.position, brushTip.rotation);//Quaternion.Euler(90, 0, 0));//identity);
+        GameObject paint = Instantiate(paintPrefab, brushTip.position, brushTip.rotation);
         paint.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         Renderer paintRenderer = paint.GetComponent<Renderer>();
         paintRenderer.material = new Material(brushMaterial);
@@ -123,8 +133,6 @@ public class PaintbrushController : MonoBehaviour
         {
             ChangeBrushColor(buttonImage.color);
         }
-        //ChangeBrushColor(buttonImage.color);
-        //ChangeBrushColor(buttonImage.color);
     }
     public void ChangeBrushColor(Color newColor)
     {
@@ -149,7 +157,6 @@ public class PaintbrushController : MonoBehaviour
     }
     public void ChangePaintPrefab()
     {
-
         Debug.Log("change");
     }
     private Coroutine hideOptionsCoroutine;
@@ -160,8 +167,6 @@ public class PaintbrushController : MonoBehaviour
         {
             button.SetActive(true);
         }
-
-        // If the hide coroutine is running, stop it
         if (hideOptionsCoroutine != null)
         {
             StopCoroutine(hideOptionsCoroutine);
@@ -170,7 +175,6 @@ public class PaintbrushController : MonoBehaviour
 
     public void StartHidingOptions()
     {
-        // If the hide coroutine is running, stop it and start again
         if (hideOptionsCoroutine != null)
         {
             StopCoroutine(hideOptionsCoroutine);
@@ -181,7 +185,6 @@ public class PaintbrushController : MonoBehaviour
     private IEnumerator HideOptionsWithDelay()
     {
         yield return new WaitForSeconds(2f);
-
         foreach (var button in additionalButtons)
         {
             button.SetActive(false);

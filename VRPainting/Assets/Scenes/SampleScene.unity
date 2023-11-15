@@ -324,6 +324,9 @@ MonoBehaviour:
   initRot: {x: 0, y: 0, z: 0}
   pos: {x: 0, y: 0, z: 0}
   rot: {x: 0, y: 0, z: 0}
+  controllerTransform: {fileID: 183634580}
+  initialHandPosition: {x: 0, y: 0, z: 0}
+  initialScale: {x: 0, y: 0, z: 0}
 --- !u!1 &46374992
 GameObject:
   m_ObjectHideFlags: 0

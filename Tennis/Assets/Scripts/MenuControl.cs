@@ -42,7 +42,7 @@ public class MenuControl : MonoBehaviour
             if (rb) 
             {
                 rb.AddForce(forceDirection.normalized * forceMagnitude, ForceMode.Impulse);
-                StartCoroutine(DestroyBall(ballInstance));
+                //StartCoroutine(DestroyBall(ballInstance));
             }
             else
             {

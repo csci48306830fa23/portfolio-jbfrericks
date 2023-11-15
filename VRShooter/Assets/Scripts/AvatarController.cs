@@ -17,14 +17,9 @@ public class MapTransforms
         ikTarget.position = vrTarget.TransformPoint(trackingPosOffset);
         ikTarget.rotation = vrTarget.rotation * Quaternion.Euler(trackingRotOffset);
     }
-
-
-
 }
 public class AvatarController : MonoBehaviour
 {
-
-
     [SerializeField] private MapTransforms head;
     [SerializeField] private MapTransforms leftHand;
     [SerializeField] private MapTransforms rightHand;
@@ -33,18 +28,6 @@ public class AvatarController : MonoBehaviour
     [SerializeField] Transform ikHead;
     [SerializeField] Vector3 headBodyOffset;
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private void LateUpdate()
     {

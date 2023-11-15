@@ -77,24 +77,25 @@ public class AudioAnalyzer : MonoBehaviour
 
             UpdateVolume(volAngle);
         }
-        if (bassDial.GrabbedBy != null)
+        else if (bassDial.GrabbedBy != null)
         {
             float bassLevel = GetDialLevel(bassDial);
             float bass = ConvertLevelToDecibels(bassLevel);
             Debug.Log(bassLevel);
             audioMixer.SetFloat("BassGain", bass);
         }
-        if (midDial.GrabbedBy != null)
+        else if (midDial.GrabbedBy != null)
         {
             float midLevel = GetDialLevel(midDial);
             audioMixer.SetFloat("MidGain", ConvertLevelToDecibels(midLevel));
-            //audioMixer.SetFloat("MidHigh", ConvertLevelToDecibels(midLevel));
+ 
         }
-        if (trebleDial.GrabbedBy != null)
+        else if (trebleDial.GrabbedBy != null)
         {
             float trebleLevel = GetDialLevel(trebleDial);
             audioMixer.SetFloat("TrebleGain", ConvertLevelToDecibels(trebleLevel));
         }
+        
     }
 
     
@@ -163,15 +164,13 @@ public class AudioAnalyzer : MonoBehaviour
     }
     float GetDialLevel(VRDial dial)
     {
-        // Get the angle of the dial and convert it to a 0-1 range for level
+        
         Vector3 localEulerAngles = dial.transform.localEulerAngles;
-        float angle = localEulerAngles.y; // Assuming y is the axis of rotation for the dials
-        return angle / maxRotation; // This converts the angle to a level between 0 and 1
+        float angle = localEulerAngles.y;
+        return angle / maxRotation;
     }
     float ConvertLevelToDecibels(float level)
     {
-        // Convert the linear volume level to decibels.
-        // -80dB is silence, 0dB is full volume.
         return (level * 6.0f) - 3.0f;
     }
 }
