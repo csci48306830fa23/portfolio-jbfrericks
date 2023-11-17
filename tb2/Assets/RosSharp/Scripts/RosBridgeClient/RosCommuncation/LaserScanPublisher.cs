@@ -63,6 +63,8 @@ namespace RosSharp.RosBridgeClient
         {
             message.header.Update();
             message.ranges = laserScanReader.Scan();
+            Debug.Log("publishing:");
+            Debug.Log(message);
             Publish(message);
         }
     }
