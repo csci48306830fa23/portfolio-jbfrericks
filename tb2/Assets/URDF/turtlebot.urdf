@@ -1,0 +1,900 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<robot name="turtlebot">
+  <material name="_1_-_Default">
+    <texture filename="package://resources/main_body.jpg" />
+  </material>
+  <material name="_01 - Default">
+    <texture filename="package://resources/astra.jpg" />
+  </material>
+  <link name="base_footprint" />
+  <link name="base_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.01 0 0" />
+      <mass value="2.4000000954" />
+      <inertia ixx="0.0199950002133846" ixy="0" ixz="0" iyy="0.0199950002133846" iyz="0" izz="0.0367499999701977" />
+    </inertial>
+    <visual>
+      <origin xyz="0.001 0 0.05199" />
+      <geometry>
+        <mesh filename="package://meshes/main_body.stl" scale="1 1 1" />
+      </geometry>
+      <material name="_1_-_Default" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0.05949" />
+      <geometry>
+        <cylinder length="0.10938" radius="0.178" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="wheel_left_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <mass value="0.0099999998" />
+      <inertia ixx="0.00100000004749745" ixy="0" ixz="0" iyy="0.00100000004749745" iyz="0" izz="0.00100000004749745" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://meshes/wheel.stl" scale="1 1 1" />
+      </geometry>
+      <material name="_1_-_Default" />
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder length="0.0206" radius="0.035" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="wheel_right_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <mass value="0.0099999998" />
+      <inertia ixx="0.00100000004749745" ixy="0" ixz="0" iyy="0.00100000004749745" iyz="0" izz="0.00100000004749745" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://meshes/wheel.stl" scale="1 1 1" />
+      </geometry>
+      <material name="_1_-_Default" />
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder length="0.0206" radius="0.035" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="caster_front_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <mass value="0.0099999998" />
+      <inertia ixx="0.00100000004749745" ixy="0" ixz="0" iyy="0.00100000004749745" iyz="0" izz="0.00100000004749745" />
+    </inertial>
+    <collision>
+      <geometry>
+        <cylinder length="0.0176" radius="0.017" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="caster_back_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <mass value="0.0099999998" />
+      <inertia ixx="0.00100000004749745" ixy="0" ixz="0" iyy="0.00100000004749745" iyz="0" izz="0.00100000004749745" />
+    </inertial>
+    <collision>
+      <geometry>
+        <cylinder length="0.0176" radius="0.017" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="gyro_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <mass value="0.001" />
+      <inertia ixx="9.99999974737875E-05" ixy="0" ixz="0" iyy="9.99999997475243E-07" iyz="0" izz="9.99999974737875E-05" />
+    </inertial>
+  </link>
+  <link name="cliff_sensor_left_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <mass value="0.0001" />
+      <inertia ixx="9.99999974737875E-05" ixy="0" ixz="0" iyy="9.99999974737875E-05" iyz="0" izz="9.99999974737875E-05" />
+    </inertial>
+  </link>
+  <link name="cliff_sensor_right_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <mass value="0.0001" />
+      <inertia ixx="9.99999974737875E-05" ixy="0" ixz="0" iyy="9.99999974737875E-05" iyz="0" izz="9.99999974737875E-05" />
+    </inertial>
+  </link>
+  <link name="cliff_sensor_front_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <mass value="0.0001" />
+      <inertia ixx="9.99999974737875E-05" ixy="0" ixz="0" iyy="9.99999974737875E-05" iyz="0" izz="9.99999974737875E-05" />
+    </inertial>
+  </link>
+  <link name="pole_bottom_0_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <mass value="0.0080000004" />
+      <inertia ixx="1.686000018708E-06" ixy="0" ixz="0" iyy="1.686000018708E-06" iyz="0" izz="9.99999997475243E-07" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://meshes/pole_bottom.stl" scale="1 1 1" />
+      </geometry>
+      <material name="_1_-_Default" />
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder length="0.0492" radius="0.006" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="pole_bottom_1_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <mass value="0.0080000004" />
+      <inertia ixx="1.686000018708E-06" ixy="0" ixz="0" iyy="1.686000018708E-06" iyz="0" izz="9.99999997475243E-07" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://meshes/pole_bottom.stl" scale="1 1 1" />
+      </geometry>
+      <material name="_1_-_Default" />
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder length="0.0492" radius="0.006" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="pole_bottom_2_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <mass value="0.0080000004" />
+      <inertia ixx="1.686000018708E-06" ixy="0" ixz="0" iyy="1.686000018708E-06" iyz="0" izz="9.99999997475243E-07" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://meshes/pole_bottom.stl" scale="1 1 1" />
+      </geometry>
+      <material name="_1_-_Default" />
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder length="0.0492" radius="0.006" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="pole_bottom_3_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <mass value="0.0080000004" />
+      <inertia ixx="1.686000018708E-06" ixy="0" ixz="0" iyy="1.686000018708E-06" iyz="0" izz="9.99999997475243E-07" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://meshes/pole_bottom.stl" scale="1 1 1" />
+      </geometry>
+      <material name="_1_-_Default" />
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder length="0.0492" radius="0.006" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="pole_bottom_4_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <mass value="0.0080000004" />
+      <inertia ixx="1.686000018708E-06" ixy="0" ixz="0" iyy="1.686000018708E-06" iyz="0" izz="9.99999997475243E-07" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://meshes/pole_bottom.stl" scale="1 1 1" />
+      </geometry>
+      <material name="_1_-_Default" />
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder length="0.0492" radius="0.006" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="pole_bottom_5_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <mass value="0.0080000004" />
+      <inertia ixx="1.686000018708E-06" ixy="0" ixz="0" iyy="1.686000018708E-06" iyz="0" izz="9.99999997475243E-07" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://meshes/pole_bottom.stl" scale="1 1 1" />
+      </geometry>
+      <material name="_1_-_Default" />
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder length="0.0492" radius="0.006" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="plate_bottom_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <mass value="0.5199999809" />
+      <inertia ixx="0.00332799996249378" ixy="0" ixz="0" iyy="0.00332799996249378" iyz="0" izz="0.00665599992498755" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://meshes/plate_bottom.stl" scale="1 1 1" />
+      </geometry>
+      <material name="_1_-_Default" />
+    </visual>
+    <collision>
+      <origin xyz="-0.02364 0 0" />
+      <geometry>
+        <cylinder length="0.006" radius="0.17" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="pole_middle_0_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <mass value="0.0119999992" />
+      <inertia ixx="3.80500000574102E-06" ixy="0" ixz="0" iyy="3.80500000574102E-06" iyz="0" izz="9.99999997475243E-07" />
+    </inertial>
+    <visual>
+      <origin rpy="-3.141593 0 -3.141593" />
+      <geometry>
+        <mesh filename="package://meshes/pole_middle.stl" scale="1 1 1" />
+      </geometry>
+      <material name="_1_-_Default" />
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder length="0.0608" radius="0.006" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="pole_middle_1_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <mass value="0.0119999992" />
+      <inertia ixx="3.80500000574102E-06" ixy="0" ixz="0" iyy="3.80500000574102E-06" iyz="0" izz="9.99999997475243E-07" />
+    </inertial>
+    <visual>
+      <origin rpy="-3.141593 0 -3.141593" />
+      <geometry>
+        <mesh filename="package://meshes/pole_middle.stl" scale="1 1 1" />
+      </geometry>
+      <material name="_1_-_Default" />
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder length="0.0608" radius="0.006" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="pole_middle_2_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <mass value="0.0119999992" />
+      <inertia ixx="3.80500000574102E-06" ixy="0" ixz="0" iyy="3.80500000574102E-06" iyz="0" izz="9.99999997475243E-07" />
+    </inertial>
+    <visual>
+      <origin rpy="-3.141593 0 -3.141593" />
+      <geometry>
+        <mesh filename="package://meshes/pole_middle.stl" scale="1 1 1" />
+      </geometry>
+      <material name="_1_-_Default" />
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder length="0.0608" radius="0.006" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="pole_middle_3_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <mass value="0.0119999992" />
+      <inertia ixx="3.80500000574102E-06" ixy="0" ixz="0" iyy="3.80500000574102E-06" iyz="0" izz="9.99999997475243E-07" />
+    </inertial>
+    <visual>
+      <origin rpy="-3.141593 0 -3.141593" />
+      <geometry>
+        <mesh filename="package://meshes/pole_middle.stl" scale="1 1 1" />
+      </geometry>
+      <material name="_1_-_Default" />
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder length="0.0608" radius="0.006" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="plate_middle_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <mass value="0.5199999809" />
+      <inertia ixx="0.00332799996249378" ixy="0" ixz="0" iyy="0.00332799996249378" iyz="0" izz="0.00665599992498755" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://meshes/plate_middle.stl" scale="1 1 1" />
+      </geometry>
+      <material name="_1_-_Default" />
+    </visual>
+    <collision>
+      <origin xyz="0.01364 0 0" />
+      <geometry>
+        <mesh filename="package://meshes/plate_simple.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="pole_top_0_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <mass value="0.0599999949" />
+      <inertia ixx="0.000206990996957757" ixy="0" ixz="0" iyy="0.000206990996957757" iyz="0" izz="1.07999994725105E-06" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://meshes/pole_top.stl" scale="1 1 1" />
+      </geometry>
+      <material name="_1_-_Default" />
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder length="0.2032" radius="0.006" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="pole_top_1_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <mass value="0.0599999949" />
+      <inertia ixx="0.000206990996957757" ixy="0" ixz="0" iyy="0.000206990996957757" iyz="0" izz="1.07999994725105E-06" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://meshes/pole_top.stl" scale="1 1 1" />
+      </geometry>
+      <material name="_1_-_Default" />
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder length="0.2032" radius="0.006" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="pole_top_2_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <mass value="0.0599999949" />
+      <inertia ixx="0.000206990996957757" ixy="0" ixz="0" iyy="0.000206990996957757" iyz="0" izz="1.07999994725105E-06" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://meshes/pole_top.stl" scale="1 1 1" />
+      </geometry>
+      <material name="_1_-_Default" />
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder length="0.2032" radius="0.006" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="pole_top_3_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <mass value="0.0599999949" />
+      <inertia ixx="0.000206990996957757" ixy="0" ixz="0" iyy="0.000206990996957757" iyz="0" izz="1.07999994725105E-06" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://meshes/pole_top.stl" scale="1 1 1" />
+      </geometry>
+      <material name="_1_-_Default" />
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder length="0.2032" radius="0.006" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="pole_kinect_0_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <mass value="0.0199999996" />
+      <inertia ixx="1.47820001075161E-05" ixy="0" ixz="0" iyy="1.47820001075161E-05" iyz="0" izz="9.99999997475243E-07" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://meshes/pole_kinect.stl" scale="1 1 1" />
+      </geometry>
+      <material name="_1_-_Default" />
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder length="0.0936" radius="0.006" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="pole_kinect_1_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <mass value="0.0199999996" />
+      <inertia ixx="1.47820001075161E-05" ixy="0" ixz="0" iyy="1.47820001075161E-05" iyz="0" izz="9.99999997475243E-07" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://meshes/pole_kinect.stl" scale="1 1 1" />
+      </geometry>
+      <material name="_1_-_Default" />
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder length="0.0936" radius="0.006" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="plate_top_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <mass value="0.5199999809" />
+      <inertia ixx="0.00332799996249378" ixy="0" ixz="0" iyy="0.00332799996249378" iyz="0" izz="0.00665599992498755" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://meshes/plate_top.stl" scale="1 1 1" />
+      </geometry>
+      <material name="_1_-_Default" />
+    </visual>
+    <collision>
+      <origin xyz="0.01364 0 0" />
+      <geometry>
+        <mesh filename="package://meshes/plate_simple.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="camera_rgb_frame" />
+  <link name="camera_rgb_optical_frame" />
+  <link name="camera_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <mass value="0.5640000105" />
+      <inertia ixx="0.003881243057549" ixy="0" ixz="0" iyy="0.00049894000403583" iyz="0" izz="0.00387925724498928" />
+    </inertial>
+    <visual>
+      <origin rpy="-4.712389 0 -4.712389" xyz="-0.04 0.02 -0.01" />
+      <geometry>
+        <mesh filename="package://meshes/astra.stl" scale="0.000668 0.000668 0.000668" />
+      </geometry>
+      <material name="_01 - Default" />
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.04 0.165 0.03" />
+      </geometry>
+    </collision>
+    <collision>
+      <origin rpy="-4.712389 0 -4.712389" xyz="-0.04 0.02 -0.01" />
+      <geometry>
+        <mesh filename="package://meshes/astra.stl" scale="0.000668 0.000668 0.000668" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="camera_depth_frame" />
+  <link name="camera_depth_optical_frame" />
+  <joint name="base_footprint_base_link_joint" type="fixed">
+    <origin xyz="0 0 0.0102" />
+    <parent link="base_footprint" />
+    <child link="base_link" />
+  </joint>
+  <joint name="wheel_left_joint" type="continuous">
+    <origin rpy="-1.570796 0 0" xyz="0 0.115 0.025" />
+    <parent link="base_link" />
+    <child link="wheel_left_link" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <joint name="wheel_right_joint" type="continuous">
+    <origin rpy="-1.570796 0 0" xyz="0 -0.115 0.025" />
+    <parent link="base_link" />
+    <child link="wheel_right_link" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <joint name="caster_front_joint" type="fixed">
+    <origin rpy="-1.570796 0 0" xyz="0.115 0 0.007" />
+    <parent link="base_link" />
+    <child link="caster_front_link" />
+  </joint>
+  <joint name="caster_back_joint" type="fixed">
+    <origin rpy="-1.570796 0 0" xyz="-0.135 0 0.009" />
+    <parent link="base_link" />
+    <child link="caster_back_link" />
+  </joint>
+  <joint name="gyro_joint" type="fixed">
+    <origin xyz="0.056 0.062 0.0202" />
+    <parent link="base_link" />
+    <child link="gyro_link" />
+  </joint>
+  <joint name="cliff_sensor_left_joint" type="fixed">
+    <origin rpy="0 1.570796 0" xyz="0.08734 0.13601 0.0214" />
+    <parent link="base_link" />
+    <child link="cliff_sensor_left_link" />
+  </joint>
+  <joint name="cliff_sensor_right_joint" type="fixed">
+    <origin rpy="0 1.570796 0" xyz="0.085 -0.13601 0.0214" />
+    <parent link="base_link" />
+    <child link="cliff_sensor_right_link" />
+  </joint>
+  <joint name="cliff_sensor_front_joint" type="fixed">
+    <origin rpy="0 1.570796 0" xyz="0.156 0 0.0214" />
+    <parent link="base_link" />
+    <child link="cliff_sensor_front_link" />
+  </joint>
+  <joint name="pole_bottom_0_joint" type="fixed">
+    <origin xyz="0.12 0.082 0.1028" />
+    <parent link="base_link" />
+    <child link="pole_bottom_0_link" />
+  </joint>
+  <joint name="pole_bottom_1_joint" type="fixed">
+    <origin xyz="0.055 0.12 0.1028" />
+    <parent link="base_link" />
+    <child link="pole_bottom_1_link" />
+  </joint>
+  <joint name="pole_bottom_2_joint" type="fixed">
+    <origin xyz="-0.055 0.12 0.1028" />
+    <parent link="base_link" />
+    <child link="pole_bottom_2_link" />
+  </joint>
+  <joint name="pole_bottom_3_joint" type="fixed">
+    <origin xyz="0.12 -0.082 0.1028" />
+    <parent link="base_link" />
+    <child link="pole_bottom_3_link" />
+  </joint>
+  <joint name="pole_bottom_4_joint" type="fixed">
+    <origin xyz="0.055 -0.12 0.1028" />
+    <parent link="base_link" />
+    <child link="pole_bottom_4_link" />
+  </joint>
+  <joint name="pole_bottom_5_joint" type="fixed">
+    <origin xyz="-0.055 -0.12 0.1028" />
+    <parent link="base_link" />
+    <child link="pole_bottom_5_link" />
+  </joint>
+  <joint name="plate_bottom_joint" type="fixed">
+    <origin xyz="0.02364 0 0.1306" />
+    <parent link="base_link" />
+    <child link="plate_bottom_link" />
+  </joint>
+  <joint name="pole_middle_0_joint" type="fixed">
+    <origin xyz="0.0381 0.1505 0.164" />
+    <parent link="base_link" />
+    <child link="pole_middle_0_link" />
+  </joint>
+  <joint name="pole_middle_1_joint" type="fixed">
+    <origin xyz="0.0381 -0.1505 0.164" />
+    <parent link="base_link" />
+    <child link="pole_middle_1_link" />
+  </joint>
+  <joint name="pole_middle_2_joint" type="fixed">
+    <origin xyz="-0.0381 0.1505 0.164" />
+    <parent link="base_link" />
+    <child link="pole_middle_2_link" />
+  </joint>
+  <joint name="pole_middle_3_joint" type="fixed">
+    <origin xyz="-0.0381 -0.1505 0.164" />
+    <parent link="base_link" />
+    <child link="pole_middle_3_link" />
+  </joint>
+  <joint name="plate_middle_joint" type="fixed">
+    <origin xyz="-0.01364 0 0.1874" />
+    <parent link="base_link" />
+    <child link="plate_middle_link" />
+  </joint>
+  <joint name="pole_top_0_joint" type="fixed">
+    <origin xyz="0.0381 0.1505 0.292" />
+    <parent link="base_link" />
+    <child link="pole_top_0_link" />
+  </joint>
+  <joint name="pole_top_1_joint" type="fixed">
+    <origin xyz="0.0381 -0.1505 0.292" />
+    <parent link="base_link" />
+    <child link="pole_top_1_link" />
+  </joint>
+  <joint name="pole_top_2_joint" type="fixed">
+    <origin xyz="-0.0381 0.1505 0.292" />
+    <parent link="base_link" />
+    <child link="pole_top_2_link" />
+  </joint>
+  <joint name="pole_top_3_joint" type="fixed">
+    <origin xyz="-0.0381 -0.1505 0.292" />
+    <parent link="base_link" />
+    <child link="pole_top_3_link" />
+  </joint>
+  <joint name="pole_kinect_0_joint" type="fixed">
+    <origin xyz="-0.1024 0.098 0.2372" />
+    <parent link="base_link" />
+    <child link="pole_kinect_0_link" />
+  </joint>
+  <joint name="pole_kinect_1_joint" type="fixed">
+    <origin xyz="-0.1024 -0.098 0.2372" />
+    <parent link="base_link" />
+    <child link="pole_kinect_1_link" />
+  </joint>
+  <joint name="plate_top_joint" type="fixed">
+    <origin xyz="-0.01364 0 0.3966" />
+    <parent link="base_link" />
+    <child link="plate_top_link" />
+  </joint>
+  <joint name="base_link_camera_rgb_frame_joint" type="fixed">
+    <origin xyz="-0.087 -0.0125 0.287" />
+    <parent link="base_link" />
+    <child link="camera_rgb_frame" />
+  </joint>
+  <joint name="camera_rgb_frame_camera_rgb_optical_frame_joint" type="fixed">
+    <origin rpy="-1.570796 0 -1.570796" />
+    <parent link="camera_rgb_frame" />
+    <child link="camera_rgb_optical_frame" />
+  </joint>
+  <joint name="camera_rgb_frame_camera_link_joint" type="fixed">
+    <origin xyz="0 -0.0125 0" />
+    <parent link="camera_rgb_frame" />
+    <child link="camera_link" />
+  </joint>
+  <joint name="camera_rgb_frame_camera_depth_frame_joint" type="fixed">
+    <origin xyz="0 0.025 0" />
+    <parent link="camera_rgb_frame" />
+    <child link="camera_depth_frame" />
+  </joint>
+  <joint name="camera_depth_frame_camera_depth_optical_frame_joint" type="fixed">
+    <origin rpy="-1.570796 0 -1.570796" />
+    <parent link="camera_depth_frame" />
+    <child link="camera_depth_optical_frame" />
+  </joint>
+  <gazebo reference="wheel_left_link">
+  <mu1>1.0</mu1>
+  <mu2>1.0</mu2>
+  <kp>1000000.0</kp>
+  <kd>100.0</kd>
+  <minDepth>0.001</minDepth>
+  <maxVel>1.0</maxVel>
+  <sensor name="wheel_drop_left" type="contact">
+    <always_on>1</always_on>
+    <update_rate>50.0</update_rate>
+    <visualize>true</visualize>
+    <contact>
+      <collision>wheel_left_link_collision</collision>
+    </contact>
+  </sensor>
+</gazebo>
+<gazebo reference="wheel_right_link">
+  <mu1>1.0</mu1>
+  <mu2>1.0</mu2>
+  <kp>1000000.0</kp>
+  <kd>100.0</kd>
+  <minDepth>0.001</minDepth>
+  <maxVel>1.0</maxVel>
+  <sensor name="wheel_drop_right" type="contact">
+    <always_on>1</always_on>
+    <update_rate>50.0</update_rate>
+    <visualize>true</visualize>
+    <contact>
+      <collision>wheel_right_link_collision</collision>
+    </contact>
+  </sensor>
+</gazebo>
+<gazebo reference="caster_front_link">
+  <mu1>0.0</mu1>
+  <mu2>0.0</mu2>
+  <kp>1000000.0</kp>
+  <kd>100.0</kd>
+  <minDepth>0.001</minDepth>
+  <maxVel>1.0</maxVel>
+</gazebo>
+<gazebo reference="caster_back_link">
+  <mu1>0.0</mu1>
+  <mu2>0.0</mu2>
+  <kp>1000000.0</kp>
+  <kd>100.0</kd>
+  <minDepth>0.001</minDepth>
+  <maxVel>1.0</maxVel>
+</gazebo>
+<gazebo reference="base_link">
+  <mu1>0.3</mu1>
+  <mu2>0.3</mu2>
+  <sensor name="bumpers" type="contact">
+    <always_on>1</always_on>
+    <update_rate>50.0</update_rate>
+    <visualize>true</visualize>
+    <contact>
+      <collision>base_footprint_fixed_joint_lump__base_collision</collision>
+    </contact>
+  </sensor>
+</gazebo>
+<gazebo reference="cliff_sensor_left_link">
+  <sensor name="cliff_sensor_left" type="ray">
+    <always_on>true</always_on>
+    <update_rate>50</update_rate>
+    <visualize>true</visualize>
+    <ray>
+      <scan>
+        <horizontal>
+          <samples>50</samples>
+          <resolution>1.0</resolution>
+          <min_angle>-0.0436</min_angle>
+          <!-- -2.5 degree -->
+          <max_angle>0.0436</max_angle>
+          <!-- 2.5 degree -->
+        </horizontal>
+        <!--            Can't use vertical rays until this bug is resolved: -->
+        <!--            https://bitbucket.org/osrf/gazebo/issue/509/vertical-sensor-doesnt-works -->
+        <!--               <vertical> -->
+        <!--                 <samples>50</samples> -->
+        <!--                 <resolution>1.0</resolution> -->
+        <!--                 <min_angle>-0.0436</min_angle>  -2.5 degree -->
+        <!--                 <max_angle>0.0436</max_angle> 2.5 degree -->
+        <!--               </vertical> -->
+      </scan>
+      <range>
+        <min>0.01</min>
+        <max>0.15</max>
+        <resolution>1.0</resolution>
+      </range>
+    </ray>
+  </sensor>
+</gazebo>
+<gazebo reference="cliff_sensor_right_link">
+  <sensor name="cliff_sensor_right" type="ray">
+    <always_on>true</always_on>
+    <update_rate>50</update_rate>
+    <visualize>true</visualize>
+    <ray>
+      <scan>
+        <horizontal>
+          <samples>50</samples>
+          <resolution>1.0</resolution>
+          <min_angle>-0.0436</min_angle>
+          <!-- -2.5 degree -->
+          <max_angle>0.0436</max_angle>
+          <!-- 2.5 degree -->
+        </horizontal>
+        <!--            Can't use vertical rays until this bug is resolved: -->
+        <!--            https://bitbucket.org/osrf/gazebo/issue/509/vertical-sensor-doesnt-works -->
+        <!--               <vertical> -->
+        <!--                 <samples>50</samples> -->
+        <!--                 <resolution>1.0</resolution> -->
+        <!--                 <min_angle>-0.0436</min_angle>  -2.5 degree -->
+        <!--                 <max_angle>0.0436</max_angle> 2.5 degree -->
+        <!--               </vertical> -->
+      </scan>
+      <range>
+        <min>0.01</min>
+        <max>0.15</max>
+        <resolution>1.0</resolution>
+      </range>
+    </ray>
+  </sensor>
+</gazebo>
+<gazebo reference="cliff_sensor_front_link">
+  <sensor name="cliff_sensor_front" type="ray">
+    <always_on>true</always_on>
+    <update_rate>50</update_rate>
+    <visualize>true</visualize>
+    <ray>
+      <scan>
+        <horizontal>
+          <samples>50</samples>
+          <resolution>1.0</resolution>
+          <min_angle>-0.0436</min_angle>
+          <!-- -2.5 degree -->
+          <max_angle>0.0436</max_angle>
+          <!-- 2.5 degree -->
+        </horizontal>
+        <!--               Can't use vertical rays until this bug is resolved: -->
+        <!--            https://bitbucket.org/osrf/gazebo/issue/509/vertical-sensor-doesnt-works -->
+        <!--               <vertical> -->
+        <!--                 <samples>50</samples> -->
+        <!--                 <resolution>1.0</resolution> -->
+        <!--                 <min_angle>-0.0436</min_angle>  -2.5 degree -->
+        <!--                 <max_angle>0.0436</max_angle> 2.5 degree -->
+        <!--               </vertical> -->
+      </scan>
+      <range>
+        <min>0.01</min>
+        <max>0.15</max>
+        <resolution>1.0</resolution>
+      </range>
+    </ray>
+  </sensor>
+</gazebo>
+<gazebo reference="gyro_link">
+  <sensor name="imu" type="imu">
+    <always_on>true</always_on>
+    <update_rate>50</update_rate>
+    <visualize>false</visualize>
+    <imu>
+      <noise>
+        <type>gaussian</type>
+        <rate>
+          <mean>0.0</mean>
+          <stddev>1.96e-06</stddev>
+          <!-- 0.25 x 0.25 (deg/s) -->
+          <bias_mean>0.0</bias_mean>
+          <bias_stddev>0.0</bias_stddev>
+        </rate>
+        <accel>
+          <!-- not used in the plugin and real robot, hence using tutorial values -->
+          <mean>0.0</mean>
+          <stddev>1.7e-2</stddev>
+          <bias_mean>0.1</bias_mean>
+          <bias_stddev>0.001</bias_stddev>
+        </accel>
+      </noise>
+    </imu>
+  </sensor>
+</gazebo>
+<gazebo>
+  <plugin filename="libgazebo_ros_kobuki.so" name="kobuki_controller">
+    <publish_tf>1</publish_tf>
+    <left_wheel_joint_name>wheel_left_joint</left_wheel_joint_name>
+    <right_wheel_joint_name>wheel_right_joint</right_wheel_joint_name>
+    <wheel_separation>.230</wheel_separation>
+    <wheel_diameter>0.070</wheel_diameter>
+    <torque>1.0</torque>
+    <velocity_command_timeout>0.6</velocity_command_timeout>
+    <cliff_sensor_left_name>cliff_sensor_left</cliff_sensor_left_name>
+    <cliff_sensor_center_name>cliff_sensor_front</cliff_sensor_center_name>
+    <cliff_sensor_right_name>cliff_sensor_right</cliff_sensor_right_name>
+    <cliff_detection_threshold>0.04</cliff_detection_threshold>
+    <bumper_name>bumpers</bumper_name>
+    <imu_name>imu</imu_name>
+    <wheel_drop_left_sensor_name>wheel_drop_left</wheel_drop_left_sensor_name>
+    <wheel_drop_right_sensor_name>wheel_drop_right</wheel_drop_right_sensor_name>
+  </plugin>
+</gazebo>
+<gazebo reference="camera_link">
+  <sensor name="camera" type="depth">
+    <always_on>true</always_on>
+    <update_rate>20.0</update_rate>
+    <camera>
+      <horizontal_fov>1.0471975511965976</horizontal_fov>
+      <image>
+        <format>B8G8R8</format>
+        <width>640</width>
+        <height>480</height>
+      </image>
+      <clip>
+        <near>0.05</near>
+        <far>8.0</far>
+      </clip>
+    </camera>
+    <plugin filename="libgazebo_ros_openni_kinect.so" name="kinect_camera_controller">
+      <cameraName>camera</cameraName>
+      <alwaysOn>true</alwaysOn>
+      <updateRate>10</updateRate>
+      <imageTopicName>rgb/image_raw</imageTopicName>
+      <depthImageTopicName>depth/image_raw</depthImageTopicName>
+      <pointCloudTopicName>depth/points</pointCloudTopicName>
+      <cameraInfoTopicName>rgb/camera_info</cameraInfoTopicName>
+      <depthImageCameraInfoTopicName>depth/camera_info</depthImageCameraInfoTopicName>
+      <frameName>camera_depth_optical_frame</frameName>
+      <baseline>0.1</baseline>
+      <distortion_k1>0.0</distortion_k1>
+      <distortion_k2>0.0</distortion_k2>
+      <distortion_k3>0.0</distortion_k3>
+      <distortion_t1>0.0</distortion_t1>
+      <distortion_t2>0.0</distortion_t2>
+      <pointCloudCutoff>0.4</pointCloudCutoff>
+    </plugin>
+  </sensor>
+</gazebo>
+</robot>
