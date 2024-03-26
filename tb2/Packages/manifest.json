@@ -1,11 +1,11 @@
 {
   "dependencies": {
-    "com.atteneder.gltfast": "https://github.com/atteneder/glTFast.git#v5.0.0",
-    "com.meta.xr.mrutilitykit": "60.0.0",
-    "com.meta.xr.sdk.core": "file:C:/Users/John Frericks/Downloads/com.meta.xr.sdk.core-60.0.0.tgz",
+    "com.meta.xr.mrutilitykit": "62.0.0",
+    "com.meta.xr.sdk.core": "62.0.0",
     "com.readyplayerme.core": "https://github.com/readyplayerme/rpm-unity-sdk-core.git",
     "com.readyplayerme.webview": "https://github.com/readyplayerme/rpm-unity-sdk-webview.git#v2.0.0",
     "com.unity.animation.rigging": "1.2.1",
+    "com.unity.cloud.gltfast": "6.2.0",
     "com.unity.collab-proxy": "2.0.5",
     "com.unity.feature.development": "1.0.1",
     "com.unity.textmeshpro": "3.0.6",
